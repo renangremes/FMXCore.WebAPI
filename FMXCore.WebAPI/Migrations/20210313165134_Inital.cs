@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FMXCore.WebAPI.Migrations
 {
-    public partial class Initial : Migration
+    public partial class Inital : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,12 +13,15 @@ namespace FMXCore.WebAPI.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
+                    Document = table.Column<string>(nullable: true),
                     Name = table.Column<string>(nullable: true),
                     BirthDate = table.Column<DateTime>(nullable: false),
                     Adress = table.Column<string>(nullable: true),
+                    District = table.Column<string>(nullable: true),
                     City = table.Column<string>(nullable: true),
                     State = table.Column<string>(nullable: true),
-                    Country = table.Column<string>(nullable: true)
+                    Country = table.Column<string>(nullable: true),
+                    BalanceFin = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -32,10 +35,12 @@ namespace FMXCore.WebAPI.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Description = table.Column<string>(nullable: true),
-                    Date = table.Column<DateTime>(nullable: false),
-                    Value = table.Column<decimal>(nullable: false),
+                    Date = table.Column<DateTime>(nullable: true),
+                    DueDate = table.Column<DateTime>(nullable: true),
+                    Value = table.Column<double>(nullable: false),
                     Type = table.Column<string>(nullable: true),
-                    UserId = table.Column<int>(nullable: false)
+                    UserId = table.Column<int>(nullable: true),
+                    UserDocument = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -45,7 +50,7 @@ namespace FMXCore.WebAPI.Migrations
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(

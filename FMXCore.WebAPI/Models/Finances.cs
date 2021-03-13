@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace FMXCore.WebAPI.Models
 {
@@ -9,10 +6,11 @@ namespace FMXCore.WebAPI.Models
     {
         public int Id { get; set; }
         public String Description { get; set; }
-        public DateTime Date { get; set; }
-        public Decimal Value { get; set; }
+        public Nullable<DateTime> Date { get; set;}
+        public Nullable<DateTime> DueDate { get; set; }
+        public Double Value { get; set; }
         public String Type { get; set; }
         public User User { get; set; }
-        public int UserId { get; set; }
+        public String UserDocument { get; set; }
     }
 }

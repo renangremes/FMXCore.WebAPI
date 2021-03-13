@@ -7,8 +7,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FMXCore.WebAPI.Migrations
 {
-    [DbContext(typeof(UserContext))]
-    partial class UserContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(DataContext))]
+    partial class DataContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -22,20 +22,26 @@ namespace FMXCore.WebAPI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("Date")
+                    b.Property<DateTime?>("Date")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
                         .HasColumnType("TEXT");
 
+                    b.Property<DateTime?>("DueDate")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Type")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("UserId")
+                    b.Property<string>("UserDocument")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int?>("UserId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<decimal>("Value")
-                        .HasColumnType("TEXT");
+                    b.Property<double>("Value")
+                        .HasColumnType("REAL");
 
                     b.HasKey("Id");
 
@@ -53,6 +59,9 @@ namespace FMXCore.WebAPI.Migrations
                     b.Property<string>("Adress")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("BalanceFin")
+                        .HasColumnType("TEXT");
+
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("TEXT");
 
@@ -60,6 +69,12 @@ namespace FMXCore.WebAPI.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Country")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("District")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Document")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
@@ -77,9 +92,7 @@ namespace FMXCore.WebAPI.Migrations
                 {
                     b.HasOne("FMXCore.WebAPI.Models.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
                 });
 #pragma warning restore 612, 618
         }

@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="FMXCore\Repository\" />
     <Folder Include="Resources\DataBase\" />
   </ItemGroup>
 
