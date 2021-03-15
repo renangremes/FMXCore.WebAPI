@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <Folder Include="FMXCore\Repository\" />
+    <Folder Include="Migrations\" />
     <Folder Include="Resources\DataBase\" />
   </ItemGroup>
 

@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FMXCore.WebAPI.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210313165134_Inital")]
-    partial class Inital
+    [Migration("20210315143313_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
